@@ -13,7 +13,7 @@ export function Sidenav() {
         <div className='relative'>
             {/* Open button */}
             {!isOpen && (
-                <div onClick={toggleMenu} className='cursor-pointer md:hidden absolute top-8 left-8 z-20'>
+                <div onClick={toggleMenu} className='absolute top-8 left-8'>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="yellow" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
                     </svg>
@@ -21,15 +21,15 @@ export function Sidenav() {
             )}
 
             {/* Sidenav */}
-            <div className={`sm:absolute md:relative top-0 left-0 z-10 px-4 border-r-2 border-slate-800 shadow-2xl bg-gradient-to-b from-[#354940] to-[#2D2D2D] font-sans w-[360px] h-full transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
-              
+            <div className={`absolute top-0 left-0 z-10 px-4 border-r-2 border-slate-800 shadow-2xl bg-gradient-to-b from-[#354940] to-[#2D2D2D] font-sans sm:w-[360px] h-full transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+                {/* Title with Close button */}
                 <div className="flex p-4 items-center justify-between">
                     <div className="flex items-center gap-2">
                         <div className="w-5 h-5 bg-white rounded-full"></div>
                         <h1 className="text-xl text-white">Chat<b>SAT</b></h1>
                     </div>
                     {/* Close button */}
-                    <div onClick={toggleMenu} className="cursor-pointer md:hidden">
+                    <div onClick={toggleMenu} className="cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="yellow" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                         </svg>
@@ -38,7 +38,7 @@ export function Sidenav() {
 
                 {/* Other sidebar content */}
                 <div>
-                    <button className="bg-[#475852] border-2 text-white shadow-2xl border-opacity-15 border-white w-full text-start px-4 py-2 rounded-xl mb-2 md:mb-4">New Thread</button>
+                    <button className="bg-[#475852] border-2 text-white shadow-2xl border-opacity-15 border-white w-full md:w-80 text-start px-4 py-2 rounded-xl">New Thread</button>
                 </div>
                 <ProgressCard done={"4"} total={"7"} xp={0} />
                 <Leaderboard />
